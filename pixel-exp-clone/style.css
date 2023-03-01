@@ -2,6 +2,8 @@
 .nav-link {
     transition: transform 0.15s ease;
 }
+
+/* Targets the nav-link element inside a nav-item element */
 .nav-item:hover .nav-link {
     transform: scale(1.05);
 }
@@ -17,7 +19,7 @@
 
 
 /* To produce hover effect on cards */
-.card:hover {                                   /*Targets the .card element when the user hovers over it */
+.card:hover {                                   
     transition: all 0.15s ease;                 /*CSS transition property to apply to all CSS properties with a duration of
                                                  0.2 seconds and an ease-in-out timing function*/
     transform: scale(1.02);                     /*By 2%*/
@@ -35,4 +37,15 @@ Note: Z index only works on positioned elements (position:absolute, position:rel
     height: 200px;
     width: auto;
     float: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .card-title {
+        font-size: 1.2rem; /* reduce font size for smaller screens */
+        margin-bottom: 0.5rem; /* add some space between the title and subtitle */
+      }
+      .card-subtitle {
+        font-size: 1rem;
+      }
 }
