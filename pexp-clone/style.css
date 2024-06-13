@@ -1,0 +1,51 @@
+/* Hover Effect in Navigation bar items */
+.nav-link {
+    transition: transform 0.15s ease;
+}
+
+/* Targets the nav-link element inside a nav-item element */
+.nav-item:hover .nav-link {
+    transform: scale(1.05);
+}
+
+
+/* Center the content of the card-body */
+.card-body, .card-img-top {
+    display: flex;
+    flex-direction: column;         /* stacks items on top of each other*/
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* To produce hover effect on cards */
+.card:hover {                                   
+    transition: all 0.15s ease;                 /*CSS transition property to apply to all CSS properties with a duration of
+                                                 0.2 seconds and an ease-in-out timing function*/
+    transform: scale(1.02);                     /*By 2%*/
+    z-index: 2;                                 /*Also works on z-index = 1*/
+    position: relative;
+}
+
+/* Z Index (z-index) is a CSS property that defines the order of overlapping HTML elements. 
+Elements with a higher index will be placed on top of elements with a lower index.
+
+Note: Z index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+
+
+.donate-img {
+    height: 200px;
+    width: auto;
+    float: right;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .card-title {
+        font-size: 1.2rem; /* reduce font size for smaller screens */
+        margin-bottom: 0.5rem; /* add some space between the title and subtitle */
+      }
+      .card-subtitle {
+        font-size: 1rem;
+      }
+}
