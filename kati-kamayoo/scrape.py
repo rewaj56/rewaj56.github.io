@@ -77,17 +77,18 @@ for url in urls:
         else:
             amount_sold = "0"
 
-        # Clean the title
+        # Clean the title & Extract the brand
         cleaned_title = clean_title(title)
         brand = extract_brand_from_url(url)
 
         # Store the data in the list
-        product_data.append([cleaned_title, current_price, original_price, amount_sold])
+        product_data.append([brand, cleaned_title, current_price, original_price, amount_sold])
 
         print(f"Product Title: {cleaned_title}")
         print(f"Current Price: {current_price}")
         print(f"Original Price: {original_price}")
         print(f"Amount Sold: {amount_sold}")
+        print(f"Brand: {brand}")
         print('-' * 40)
 
 # Close the WebDriver
@@ -97,7 +98,7 @@ driver.quit()
 with open('products.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     # Write the header
-    writer.writerow(["Title", "Current Price", "Original Price", "Amount Sold"])
+    writer.writerow(["Brand", "Title", "Current Price", "Original Price", "Amount Sold"])
     # Write the product data
     writer.writerows(product_data)
 
