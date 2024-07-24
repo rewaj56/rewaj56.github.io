@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4"><strong>Kati Kamayoo?</strong></h1>
+
+        <!-- Chart.js Visualization -->
+        <div class="my-4">
+            <h2>Brand Earnings</h2>
+            <canvas id="earningsChart"></canvas>
+        </div>
+
+        <!-- Tables for Each Brand -->
+        {% for brand, products in brand_data.items() %}
+        <div class="my-4">
+            <h2>{{ brand }}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Current Price</th>
+                        <th>Amount Sold</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ product.title }}</td>
+                        <td>NPR {{ product.current_price }}</td>
+                        <td>{{ product.amount_sold }}</td>
+                        <td>NPR {{ product.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>Total Earned:</strong></td>
+                        <td>NPR {{ brand_earnings[loop.index0] }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Chart.js Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('earningsChart').getContext('2d');
+            var earningsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: JSON.parse('{{ brand_labels|tojson }}'),
+                    datasets: [{
+                        label: 'Total Earnings',
+                        data: JSON.parse('{{ brand_earnings|tojson }}'),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
