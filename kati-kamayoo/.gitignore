@@ -1,3 +1,6 @@
-# Ignore geckodriver log file
 geckodriver.log
 katikamayoo
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
