@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 import time
 import re
 import csv
+import db_handler
 
-# Function to clean price and extract number from amount sold
 def clean_data(data):
     return data.replace('Rs.', '').replace(',', '').strip()
 
@@ -12,7 +12,6 @@ def extract_number(text):
     match = re.search(r'\d+', text)
     return match.group(0) if match else "0"
 
-# Function to clean titles based on punctuation
 def clean_title(title):
     if ',' in title:
         return title.split(',')[0].strip()
@@ -24,7 +23,6 @@ def clean_title(title):
 def extract_brand_from_url(url):
     # Split the URL by '/' and get the last part
     parts = url.split('/')
-    # The brand name is the part before the query string or the end of the URL
     brand_name = parts[-2]  # Get the second last part
     return brand_name
 
@@ -34,7 +32,6 @@ urls = [
     "https://www.daraz.com.np/xiaomi/",
     "https://www.daraz.com.np/redmi/",
     "https://www.daraz.com.np/fantech/",
-    # Add more brand URLs as needed
 ]
 
 # Initialize WebDriver
@@ -66,7 +63,6 @@ for url in urls:
         current_price = product_div.find_element(By.CLASS_NAME, 'current-price--Jklkc').text.strip()
         original_price = product_div.find_element(By.CLASS_NAME, 'original-price--lHYOH').text.strip()
 
-        # Clean the prices
         current_price = clean_data(current_price)
         original_price = clean_data(original_price)
 
@@ -77,7 +73,6 @@ for url in urls:
         else:
             amount_sold = "0"
 
-        # Clean the title & Extract the brand
         cleaned_title = clean_title(title)
         brand = extract_brand_from_url(url)
 
@@ -93,13 +88,15 @@ for url in urls:
 
 # Close the WebDriver
 driver.quit()
+   
+db_connection = db_handler.connect_to_db()
+if db_connection is not None:
+    cursor = db_connection.cursor()
 
-# Write the data to a CSV file
-with open('products.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    # Write the header
-    writer.writerow(["Brand", "Title", "Current Price", "Original Price", "Amount Sold"])
-    # Write the product data
-    writer.writerows(product_data)
+    db_handler.create_table(cursor)
+    db_handler.insert_data(cursor, product_data)
+    db_connection.commit()
 
-print("Data has been written to products.csv")
+    db_handler.close_db_connection(cursor, db_connection)
+else:
+    print("Failed to connect to the database. Data not inserted.")
