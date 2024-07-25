@@ -94,6 +94,7 @@ if db_connection is not None:
     cursor = db_connection.cursor()
 
     db_handler.create_table(cursor)
+    db_handler.truncate_table(cursor)
     db_handler.insert_data(cursor, product_data)
     db_connection.commit()
 

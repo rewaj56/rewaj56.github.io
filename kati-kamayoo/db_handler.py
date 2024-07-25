@@ -23,22 +23,28 @@ def create_table(cursor):
             id INT AUTO_INCREMENT PRIMARY KEY,
             brand VARCHAR(255),
             title VARCHAR(255),
-            current_price DECIMAL(10, 2),
-            original_price DECIMAL(10, 2),
-            amount_sold INT
+            current_price VARCHAR(20),
+            original_price VARCHAR(20),
+            amount_sold VARCHAR(10)
         )
         """)
         print("Table is ready")
     except Error as e:
         print(f"Error creating table: {e}")
 
+def truncate_table(cursor):
+    try:
+        cursor.execute("TRUNCATE TABLE products")
+        print("Table truncated successfully")
+    except Error as e:
+        print(f"Error truncating table: {e}")
+
 def insert_data(cursor, product_data):
     try:
         for product in product_data:
-            # brand gets the first value of product tuple and so on...aks tuple unpacking
             brand, title, current_price, original_price, amount_sold = product
             cursor.execute("""
-            INSERT INTO products (brand, title, current_price, original_price, amount_sold)
+            INSERT IGNORE INTO products (brand, title, current_price, original_price, amount_sold)
             VALUES (%s, %s, %s, %s, %s)
             """, (brand, title, current_price, original_price, amount_sold))
         print("Data insertion successful")
