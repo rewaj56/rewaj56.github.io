@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kati Kamayoo?</title>
+    <link rel="shortcut icon" href="#">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
+
 <body>
     <div class="container">
-        <h1 class="my-4"><strong>Kati Kamayoo?</strong></h1>
+        <h1 class="my-4 text-center"><strong>Kati Kamayoo?</strong></h1>
 
-        <!-- Chart.js Visualization -->
+        <!-- Chart.js Visualization for Brand Earnings -->
         <div class="my-4">
-            <h2>Brand Earnings</h2>
-            <canvas id="earningsChart"></canvas>
+            <h3>Brand Earnings</h3>
+            <i>*Key insight to look for is the distribution of revenue across brands.</i>
+            <canvas id="earningsChart" class="my-4"></canvas>
+        </div>
+
+        <!-- Chart.js Visualization for Items Sold vs Earnings -->
+        <div class="my-4">
+            <h3>Total Items Sold vs. Total Earnings by Brand</h3>
+            <i>*Key insight to look for is the correlation between sales volume and revenue.</i>
+            <canvas id="itemsSoldChart" class="my-4"></canvas>
         </div>
 
         <!-- Tables for Each Brand -->
         {% for brand, products in brand_data.items() %}
         <div class="my-4">
-            <h2>{{ brand }}</h2>
-            <table class="table table-striped">
-                <thead>
+            <h3>{{ brand }}</h3>
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
@@ -59,7 +70,7 @@
 
     <!-- Chart.js Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var ctx = document.getElementById('earningsChart').getContext('2d');
             var earningsChart = new Chart(ctx, {
                 type: 'bar',
@@ -83,5 +94,57 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx2 = document.getElementById('itemsSoldChart').getContext('2d');
+            var itemsSoldChart = new Chart(ctx2, {
+                type: 'line',
+                data: {
+                    labels: JSON.parse('{{ brand_labels|tojson }}'),
+                    datasets: [{
+                        label: 'Total Items Sold',
+                        data: JSON.parse('{{ brand_items_sold|tojson }}'),
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y1',
+                    }, {
+                        label: 'Total Earnings',
+                        data: JSON.parse('{{ brand_earnings|tojson }}'),
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        yAxisID: 'y2',
+                    }]
+                },
+                options: {
+                    scales: {
+                        y1: {
+                            type: 'linear',
+                            position: 'left',
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Items Sold'
+                            }
+                        },
+                        y2: {
+                            type: 'linear',
+                            position: 'right',
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Earnings'
+                            },
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
