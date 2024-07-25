@@ -23,12 +23,14 @@ def index():
     
     brand_data = {}
     brand_earnings = {}
-    
+    brand_items_sold = {}
+
     for brand in brands:
-        # Query to get products for each brand
+        # Query to get products for each brand and calculate totals
         cursor.execute("""
             SELECT id, title, current_price, amount_sold,
-                   (current_price * amount_sold) AS total
+                   (current_price * amount_sold) AS total,
+                   SUM(amount_sold) OVER() AS total_items_sold
             FROM products
             WHERE brand = %s
         """, (brand,))
@@ -36,9 +38,12 @@ def index():
         
         # Calculate total earnings for the brand
         total_earnings = sum(product['total'] for product in products)
+        # Get the total items sold for the brand (assuming it's the same for all rows)
+        total_items_sold = products[0]['total_items_sold'] if products else 0
         
         brand_data[brand] = products
         brand_earnings[brand] = total_earnings
+        brand_items_sold[brand] = total_items_sold
     
     cursor.close()
     connection.close()
@@ -46,12 +51,14 @@ def index():
     # Prepare data for chart
     brand_labels = list(brand_earnings.keys())
     brand_earnings_values = list(brand_earnings.values())
+    brand_items_sold_values = list(brand_items_sold.values())
     
     return render_template(
         'product_list.html',
         brand_data=brand_data,
         brand_labels=brand_labels,
-        brand_earnings=brand_earnings_values
+        brand_earnings=brand_earnings_values,
+        brand_items_sold=brand_items_sold_values
     )
 
 if __name__ == '__main__':
