@@ -23,7 +23,10 @@ def clean_title(title):
 def extract_brand_from_url(url):
     # Split the URL by '/' and get the last part
     parts = url.split('/')
-    brand_name = parts[-2]  # Get the second last part
+    brand_part = parts[-2]  # Get the second last part
+    
+    # Remove any suffix like '-brand'
+    brand_name = re.sub(r'-brand$', '', brand_part)
     return brand_name
 
 # List of URLs to scrape
@@ -32,6 +35,11 @@ urls = [
     "https://www.daraz.com.np/xiaomi/",
     "https://www.daraz.com.np/redmi/",
     "https://www.daraz.com.np/fantech/",
+    "https://www.daraz.com.np/erke/",
+    "https://www.daraz.com.np/smartphones/samsung-brand/",
+    "https://www.daraz.com.np/smartphones/apple/",
+    "https://www.daraz.com.np/midea/",
+    "https://www.daraz.com.np/fashion-jewellery/masala-beads/",
 ]
 
 # Initialize WebDriver
