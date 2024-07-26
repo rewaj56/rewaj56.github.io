@@ -1,3 +1,12 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body {
+    color: rgb(230, 230, 230);
+    background-color: rgb(49, 47, 47);
+}
+
+table tr {
+    color: rgb(230, 230, 230);
+}
