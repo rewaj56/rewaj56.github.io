@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kati Kamayoo?</title>
-    <link rel="shortcut icon" href="#">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="#" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    s
 </head>
 
 <body>
@@ -17,14 +18,16 @@
         <!-- Chart.js Visualization for Brand Earnings -->
         <div class="my-4">
             <h3>Brand Earnings</h3>
-            <i>*Key insight to look for is the distribution of revenue across brands.</i>
+            <i>*Key insight to look for is the distribution of revenue across
+                brands.</i>
             <canvas id="earningsChart" class="my-4"></canvas>
         </div>
 
         <!-- Chart.js Visualization for Items Sold vs Earnings -->
         <div class="my-4">
             <h3>Total Items Sold vs. Total Earnings by Brand</h3>
-            <i>*Key insight to look for is the correlation between sales volume and revenue.</i>
+            <i>*Key insight to look for is the correlation between sales volume and
+                revenue.</i>
             <canvas id="itemsSoldChart" class="my-4"></canvas>
         </div>
 
@@ -55,7 +58,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="4" class="text-right"><strong>Total Earned:</strong></td>
+                        <td colspan="4" class="text-right">
+                            <strong>Total Earned:</strong>
+                        </td>
                         <td>NPR {{ brand_earnings[loop.index0] }}</td>
                     </tr>
                 </tfoot>
@@ -70,15 +75,21 @@
 
     <!-- Chart.js Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var ctx = document.getElementById('earningsChart').getContext('2d');
-            var earningsChart = new Chart(ctx, {
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctxEarnings = document.getElementById('earningsChart').getContext('2d');
+            var ctxItemsSold = document.getElementById('itemsSoldChart').getContext('2d');
+            
+            var earningsData = JSON.parse('{{ brand_earnings|tojson|safe }}');
+            var itemsSoldData = JSON.parse('{{ brand_items_sold|tojson|safe }}');
+            var brandLabels = JSON.parse('{{ brand_labels|tojson|safe }}');
+            
+            new Chart(ctxEarnings, {
                 type: 'bar',
                 data: {
-                    labels: JSON.parse('{{ brand_labels|tojson }}'),
+                    labels: brandLabels,
                     datasets: [{
                         label: 'Total Earnings',
-                        data: JSON.parse('{{ brand_earnings|tojson }}'),
+                        data: earningsData,
                         backgroundColor: 'rgba(75, 192, 192, 0.2)',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
@@ -92,25 +103,21 @@
                     }
                 }
             });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var ctx2 = document.getElementById('itemsSoldChart').getContext('2d');
-            var itemsSoldChart = new Chart(ctx2, {
+
+            new Chart(ctxItemsSold, {
                 type: 'line',
                 data: {
-                    labels: JSON.parse('{{ brand_labels|tojson }}'),
+                    labels: brandLabels,
                     datasets: [{
                         label: 'Total Items Sold',
-                        data: JSON.parse('{{ brand_items_sold|tojson }}'),
+                        data: itemsSoldData,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1,
                         yAxisID: 'y1',
                     }, {
                         label: 'Total Earnings',
-                        data: JSON.parse('{{ brand_earnings|tojson }}'),
+                        data: earningsData,
                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1,
@@ -144,7 +151,7 @@
                 }
             });
         });
-    </script>
+    </script>    
 </body>
 
 </html>
