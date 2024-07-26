@@ -9,8 +9,13 @@ def clean_data(data):
     return data.replace('Rs.', '').replace(',', '').strip()
 
 def extract_number(text):
-    match = re.search(r'\d+', text)
-    return match.group(0) if match else "0"
+    match = re.search(r'(\d+(\.\d+)?)([Kk])?', text)
+    if match:
+        number = float(match.group(1))
+        if match.group(3) and match.group(3).lower() == 'k':
+            number *= 1000
+        return int(number)
+    return 0
 
 def clean_title(title):
     if ',' in title:
@@ -37,9 +42,11 @@ urls = [
     "https://www.daraz.com.np/fantech/",
     "https://www.daraz.com.np/erke/",
     "https://www.daraz.com.np/smartphones/samsung-brand/",
-    "https://www.daraz.com.np/smartphones/apple/",
+    "https://www.daraz.com.np/apple/",
     "https://www.daraz.com.np/midea/",
     "https://www.daraz.com.np/fashion-jewellery/masala-beads/",
+    "https://www.daraz.com.np/home-appliances/philips/",
+    "https://www.daraz.com.np/realme/",
 ]
 
 # Initialize WebDriver
@@ -79,7 +86,7 @@ for url in urls:
         if amount_sold_elem:
             amount_sold = extract_number(amount_sold_elem[0].text.strip())
         else:
-            amount_sold = "0"
+            amount_sold = 0
 
         cleaned_title = clean_title(title)
         brand = extract_brand_from_url(url)
@@ -96,7 +103,7 @@ for url in urls:
 
 # Close the WebDriver
 driver.quit()
-   
+
 db_connection = db_handler.connect_to_db()
 if db_connection is not None:
     cursor = db_connection.cursor()
