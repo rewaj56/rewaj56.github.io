@@ -2,45 +2,60 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kati Kamayoo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fddcbe;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .content {
-      text-align: center;
-      font-family: 'Oswald', sans-serif;
-      color: #333;
-    }
-
-    .content h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    .content p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      color: #555;
-    }
-  </style>
+  <link rel="stylesheet" href="site/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-  <div class="content">
-    <h1>Coming Soon</h1>
-    <p>Our website is on the way. Stay tuned!</p>
-  </div>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-4 has-text-weight-bold" href="#">
+        Kati Kamayoo
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasic" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item"> Home </a>
+
+        <a class="navbar-item"> Documentation </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link"> More </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item"> About </a>
+            <hr class="navbar-divider" />
+            <a class="navbar-item"> Report an issue </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-success">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a class="button is-light">
+              <i class="fa fa-github-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="site/js/script.js"></script>
 </body>
 
 </html>
