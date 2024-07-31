@@ -12,9 +12,9 @@ html {
 }
 
 .navbar-item:hover {
-  background-color: #2b2929; /* Black background */
+  background-color: #2b2929;
   color: #e9e9e0;
-  border-radius: 6px; /* White text */
+  border-radius: 6px;
 }
 
 .hero-image {
@@ -23,7 +23,7 @@ html {
 }
 
 .code-block {
-  background: #2b2929;
+  background: #1b1b1b;
   color: #e9e9e0;
   border-radius: 16px;
   padding: 0.5em;
@@ -31,7 +31,6 @@ html {
   font-size: 1rem;
   overflow-x: auto;
   white-space: pre-wrap;
-  margin-bottom: 0.5em;
 }
 
 .code-block,
@@ -46,4 +45,22 @@ pre {
 
 .features-item {
   text-align: center;
+}
+
+.image img {
+  border: 0.5px solid #444343;
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hover-glow:hover, .hover-glow:focus {
+  box-shadow: 0 0 15px rgba(64, 195, 138, 0.6);
+  transform: scale(1.02);
+}
+
+@media screen and (max-width: 768px) {
+  .divider {
+    border-top: 1px solid #c9c7c7;
+    margin: 10px 0;
+  }
 }
