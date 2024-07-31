@@ -17,11 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'rgba(235, 234, 234, 1)'  // Change y-axis text color to white
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'rgba(235, 234, 234, 1)'  // Change x-axis text color to white
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'rgba(235, 234, 234, 1)'  // Change legend text color to white
+                    }
                 }
             }
         }
     });
+    
 
     new Chart(ctxItemsSold, {
         type: 'line',
@@ -51,7 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Total Items Sold'
+                        text: 'Total Items Sold',
+                        color: 'white'  // Set title text color to white
+                    },
+                    ticks: {
+                        color: 'white'  // Set y1 axis ticks color to white
                     }
                 },
                 y2: {
@@ -60,13 +80,29 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Total Earnings'
+                        text: 'Total Earnings',
+                        color: 'white'  // Set title text color to white
                     },
                     grid: {
                         drawOnChartArea: false
+                    },
+                    ticks: {
+                        color: 'white'  // Set y2 axis ticks color to white
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'white'  // Set x-axis labels color to white
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white'  // Set legend text color to white
                     }
                 }
             }
         }
-    });
+    });    
 });
