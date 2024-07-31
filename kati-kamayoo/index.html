@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE >
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -12,13 +12,13 @@
 
 <body>
   <!-- Navbar start -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar has-background-black-bis" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item is-size-4 has-text-weight-bold has-text-success" href="#">
         Kati Kamayoo
       </a>
 
-      <a role="button" class="navbar-burger has-text-success" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
+      <a role="button" class="navbar-burger has-text-success has-background-black-bis" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -26,12 +26,12 @@
       </a>
     </div>
 
-    <div id="navbarBasic" class="navbar-menu">
+    <div id="navbarBasic" class="navbar-menu has-text-grey-lighter has-background-black-bis">
       <div class="navbar-start">
-        <a class="navbar-item" href="#"> Home </a>
-        <a class="navbar-item" href="#features"> Features </a>
-        <a class="navbar-item" href="#about"> About </a>
-        <a class="navbar-item" href="#getting_started"> Getting Started </a>
+        <a class="navbar-item has-text-grey-lighter" href="#"> Home </a>
+        <a class="navbar-item has-text-grey-lighter" href="#features"> Features </a>
+        <a class="navbar-item has-text-grey-lighter" href="#about"> About </a>
+        <a class="navbar-item has-text-grey-lighter" href="#getting_started"> Getting Started </a>
       </div>
 
       <div class="navbar-end">
@@ -51,7 +51,7 @@
   <!-- Navbar end -->
 
   <!-- Hero section start -->
-  <section class="hero is-medium is-bold" id="hero">
+  <section class="hero is-medium is-bold has-background-black-bis" id="hero">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-vcentered">
@@ -66,8 +66,8 @@
               Learn More
             </a>
           </div>
-          <div class="column is-half has-background-black-ter is-rounded">
-            <figure class="image is-4by3">
+          <div class="column is-half">
+            <figure class="hero-image is-4by3">
               <img src="site/images/hero-bg.svg" alt="Hero background image">
             </figure>
           </div>
@@ -80,28 +80,28 @@
   <!-- Features section start -->
   <section class="section has-background-black-ter" id="features">
     <div class="container">
-      <h2 class="title">Features</h2>
+      <h2 class="title has-text-grey-lighter">Features</h2>
       <div class="columns is-multiline">
         <div class="column is-one-quarter features-item">
           <i class="fa fa-search features-icon"></i>
           <h3 class="subtitle has-text-white-ter has-text-weight-semibold mb-3">Comprehensive Data</h3>
-          <p class="has-text-centered">Scrapes product titles, current prices, original prices, and amount sold for products listed on Daraz
+          <p class="has-text-centered has-text-grey-lighter">Scrapes product titles, current prices, original prices, and amount sold for products listed on Daraz
             Nepal.</p>
         </div>
         <div class="column is-one-quarter features-item">
           <i class="fa fa-magic features-icon"></i>
           <h3 class="subtitle has-text-white-ter has-text-weight-semibold mb-3">Automated Scraping</h3>
-          <p class="has-text-centered">Uses Selenium to automate the process of fetching data from the website.</p>
+          <p class="has-text-centered has-text-grey-lighter">Uses Selenium to automate the process of fetching data from the website.</p>
         </div>
         <div class="column is-one-quarter features-item">
           <i class="fa fa-database features-icon"></i>
           <h3 class="subtitle has-text-white-ter has-text-weight-semibold mb-3">Data Storage</h3>
-          <p class="has-text-centered">Stores scraped data in a MySQL database for easy retrieval and management.</p>
+          <p class="has-text-centered has-text-grey-lighter">Stores scraped data in a MySQL database for easy retrieval and management.</p>
         </div>
         <div class="column is-one-quarter features-item">
           <i class="fa fa-bar-chart features-icon"></i>
           <h3 class="subtitle has-text-white-ter has-text-weight-semibold mb-3">Data Visualization</h3>
-          <p class="has-text-centered">Integrates Flask and Chart.js to render and visualize product data in interactive charts and tables.</p>
+          <p class="has-text-centered has-text-grey-lighter">Integrates Flask and Chart.js to render and visualize product data in interactive charts and tables.</p>
         </div>
       </div>
     </div>
@@ -129,10 +129,10 @@
         </p>
         <h2 class="title is-4 has-text-grey-lighter pl-4">Technologies Used</h2>
         <ul class="has-text-grey-lighter pl-4">
-          <li><i class="fa fa-magic"></i> <strong>Selenium</strong> - For web automation and scraping.</li>
-          <li><i class="fa fa-database"></i> <strong>MySQL</strong> - For storing and managing the scraped data.</li>
-          <li><i class="fa fa-code"></i> <strong>Flask</strong> - For serving data through a web framework.</li>
-          <li><i class="fa fa-bar-chart"></i> <strong>Chart.js</strong> - For creating dynamic, interactive visualizations.</li>
+          <li><i class="fa fa-magic"></i> <strong class="has-text-grey-lighter">Selenium</strong> - For web automation and scraping.</li>
+          <li><i class="fa fa-database"></i> <strong class="has-text-grey-lighter">MySQL</strong> - For storing and managing the scraped data.</li>
+          <li><i class="fa fa-code"></i> <strong class="has-text-grey-lighter">Flask</strong> - For serving data through a web framework.</li>
+          <li><i class="fa fa-bar-chart"></i> <strong class="has-text-grey-lighter">Chart.js</strong> - For creating dynamic, interactive visualizations.</li>
         </ul>
       </div>
     </div>
@@ -144,24 +144,24 @@
   <!-- Getting Started section start -->
   <section class="section has-background-black-bis pt-3" id="getting_started">
     <div class="container">
-      <h2 class="title">Getting Started</h2>
+      <h2 class="title has-text-grey-lighter">Getting Started</h2>
       <p class="has-text-grey-lighter pb-2">Follow these steps to set up Kati Kamayoo on your local machine:</p>
       <div class="code-block">
-        <p><strong>1. Clone the Repository:</strong></p>
+        <p><strong class="has-text-grey-lighter">1. Clone the Repository:</strong></p>
         <pre><code>git clone https://github.com/rewaj56/rewaj56.github.io.git</code></pre>
         <pre><code>cd kati-kamayoo</code></pre>
 
-        <p><strong>2. Install Dependencies:</strong></p>
+        <p><strong class="has-text-grey-lighter">2. Install Dependencies:</strong></p>
         <pre><code>pip install -r requirements.txt</code></pre>
 
-        <p><strong>3. Set Up MySQL Database:</strong></p>
+        <p><strong class="has-text-grey-lighter">3. Set Up MySQL Database:</strong></p>
         <pre><code>Create a MySQL database and user.</code></pre>
         <pre><code>Update the database configuration with your credentials.</code></pre>
 
-        <p><strong>4. Run the Scraper:</strong></p>
+        <p><strong class="has-text-grey-lighter">4. Run the Scraper:</strong></p>
         <pre><code>python scraper.py</code></pre>
 
-        <p><strong>5. Start the Flask App:</strong></p>
+        <p><strong class="has-text-grey-lighter">5. Start the Flask App:</strong></p>
         <pre><code>python app.py</code></pre>
         <p>Visit <a href="http://localhost:5000">http://localhost:5000</a> in your web browser to view the app.</p>
       </div>

@@ -4,19 +4,19 @@ html {
   scroll-behavior: smooth;
 }
 
-.is-rounded {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
+.navbar-item:hover {
+  background-color: #2b2929; /* Black background */
+  color: #e9e9e0;
+  border-radius: 6px;            /* White text */
 }
 
-.is-rounded .image {
+.hero-image {
   width: 100%;
   height: auto;
 }
 
 .code-block {
-  background: #272525;
+  background: #2b2929;
   color: #e9e9e0;
   border-radius: 16px;
   padding: 0.5em;
