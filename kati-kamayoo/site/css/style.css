@@ -4,10 +4,17 @@ html {
   scroll-behavior: smooth;
 }
 
+.navbar {
+  width: 100%;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
 .navbar-item:hover {
   background-color: #2b2929; /* Black background */
   color: #e9e9e0;
-  border-radius: 6px;            /* White text */
+  border-radius: 6px; /* White text */
 }
 
 .hero-image {
@@ -21,22 +28,22 @@ html {
   border-radius: 16px;
   padding: 0.5em;
   font-family: monospace;
-  font-size: 1rem;;
+  font-size: 1rem;
   overflow-x: auto;
   white-space: pre-wrap;
   margin-bottom: 0.5em;
 }
 
-.code-block, pre {
+.code-block,
+pre {
   border-radius: 16px;
 }
 
 .features-icon {
-  color: #40C38A;
+  color: #40c38a;
   margin-bottom: 0.5em;
 }
 
 .features-item {
   text-align: center;
 }
-
