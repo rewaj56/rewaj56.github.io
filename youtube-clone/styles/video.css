@@ -37,7 +37,7 @@
 
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   column-gap: 16px;
   row-gap: 40px;
 }
@@ -56,4 +56,32 @@
   position: absolute;
   bottom: 8px;
   right: 5px;
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-info-grid {
+    grid-template-columns: 40px 1fr;
+  }
+
+  .profile-picture {
+    width: 30px;
+  }
+
+  .video-title {
+    font-size: 13px;
+  }
+
+  .video-author,
+  .video-stats {
+    font-size: 11px;
+  }
+
+  .video-grid {
+    padding: 60px 0;
+  }
+  
 }
