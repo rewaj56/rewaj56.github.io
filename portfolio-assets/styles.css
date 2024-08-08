@@ -1,0 +1,109 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: "Karla", sans-serif;
+}
+
+.has-background-beige {
+  background-color: #f6e6bf;
+}
+
+.has-background-beige2 {
+  background-color: #f1deb2;
+}
+
+.navbar {
+  width: 100%;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-item:hover {
+  background-color: #e0d19d;
+  color: #202020;
+  border-radius: 6px;
+}
+
+.hero-body {
+  padding: 4rem 1rem !important;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+.image {
+  position: relative;
+  display: inline-block;
+}
+
+.image img {
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border-radius: 8px;
+  border: 4px solid transparent;
+}
+
+.image:hover img {
+  border: 4px solid #e29292;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Preload Overlay */
+.preload-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f1deb2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 8px solid #f1deb2;
+  border-top: 8px solid rgb(151, 117, 37);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hide the overlay once content is loaded */
+.hide-overlay {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .divider {
+    border-top: 1px solid #fdaeae;
+    margin: 10px 0;
+  }
+}
+
+
+
+
+
+
+

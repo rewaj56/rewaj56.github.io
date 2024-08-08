@@ -2,45 +2,237 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fdfdbe;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .content {
-      text-align: center;
-      font-family: 'Oswald', sans-serif;
-      color: #333;
-    }
-
-    .content h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    .content p {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rewaj.</title>
+  <link rel="icon" href="#" sizes="16x16">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="portfolio-assets/styles.css">
 </head>
 
 <body>
-  <div class="content">
-    <h1>Coming Soon</h1>
-    <p>Our website is on the way. Stay tuned!</p>
+  <!-- Preload Overlay start-->
+  <div class="preload-overlay">
+    <div class="spinner"></div>
   </div>
+  <!-- Preload Overlay end -->
+
+  <!-- Navbar start -->
+  <nav class="navbar has-background-beige2" role="navigation" aria-label="main navigation" id="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-4 has-text-weight-bold has-text-dark" href="#" onclick="window.location.reload();">
+        Rewaj.
+      </a>
+
+      <a role="button" class="navbar-burger has-text-dark" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasic">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasic" class="navbar-menu  has-background-beige2 has-text-black-ter">
+      <div class="navbar-start">
+        <a class="navbar-item has-text-black-ter has-text-weight-semibold" href="#hero"> Home </a>
+        <a class="navbar-item has-text-black-ter has-text-weight-semibold" href="#about"> About Me </a>
+        <a class="navbar-item has-text-black-ter has-text-weight-semibold" href="#projects"> Projects </a>
+        <a class="navbar-item has-text-black-ter has-text-weight-semibold" href="#reach_me"> Reach Out </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="button is-light" href="https://x.com/rewaj56">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </div>
+        <div class="navbar-item">
+          <a class="button is-light" href="https://github.com/rewaj56/rewaj56.github.io">
+            <i class="fa fa-github-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar end -->
+
+  <!-- Hero section start -->
+  <section class="hero is-medium has-background-beige" id="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-half">
+            <h1 class="title has-text-black-ter is-size-2-mobile">
+              Hey there!
+            </h1>
+            <h2 class="subtitle has-text-black-ter is-size-5-mobile pt-2">
+              Check out my work and see what I'm up to.
+            </h2>
+            <a class="button is-light has-text-weight-semibold" href="#about">
+              Explore
+            </a>
+          </div>
+          <div class="column is-half">
+            <figure class="hero-image">
+              <img src="portfolio-assets/images/hero-image.svg" alt="Hero Image">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Hero section end -->
+
+  <!-- About section start -->
+  <section class="about-us p-6 has-background-beige2" id="about">
+    <div class="container">
+      <div class="content has-text-justified">
+        <h2 class="title has-text-black-ter">About Me</h2>
+        <p class="has-text-black-ter">
+          Hi, I'm Rewaj Gautam, a software developer from Chitwan, Nepal. With a BSc in Computer Science and hands-on
+          experience in IT support and software development, I'm passionate about making tech work smoothly and
+          efficiently.
+        </p>
+        <p class="has-text-black-ter">
+          I began as a Technical Support Intern at Chitwan Medical College, where I cut issue resolution time by 50% and
+          improved network reliability. Later, as an intern at MEDiiSHA Nepal, I upgraded their endoscopy system and
+          streamlined its integration with HIMS software. Now, I'm a software developer focused on enhancing healthcare
+          management systems and boosting efficiency.
+        </p>
+        <p class="has-text-black-ter">
+          I'm skilled in PHP, SQL, Laravel, Python, and various CSS frameworks. I share my projects on GitHub — feel
+          free
+          to check them out or connect with me via email!
+        </p>
+        <h2 class="title is-4 has-text-black-ter pl-4">Tech Stack</h2>
+        <ul class="has-text-black-ter pl-4">
+          <li><i class="fa fa-code"></i> <strong class="has-text-black-ter">Languages</strong> - PHP, Python, SQL,
+            JavaScript</li>
+          <li><i class="fa fa-magic"></i> <strong class="has-text-black-ter">Frameworks</strong> - Laravel, React,
+            Tailwind CSS, Bootstrap, Bulma CSS</li>
+          <li><i class="fa fa-gear"></i> <strong class="has-text-black-ter">Tools</strong> - VS Code, Git, Figma,
+            draw.io, Anydesk, TeamViewer</li>
+          <li><i class="fa fa-database"></i> <strong class="has-text-black-ter">Databases</strong> - MySQL, MS-SQL
+            Server, Oracle (TOAD)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- About section end -->
+
+  <!-- Projects section start -->
+  <section class="section has-background-beige" id="projects">
+    <div class="container">
+      <h1 class="title has-text-black-ter">Projects</h1>
+
+      <div class="columns is-vcentered is-variable">
+        <div class="column is-half">
+          <p class="content has-text-justified has-text-black-ter"><strong class="has-text-black-bis">Kati
+              Kamayoo:</strong> Kati Kamayoo is designed to extract detailed product information from Daraz Nepal using
+            Selenium for
+            automation. It gathers data such as product titles, prices, and sales figures, which is then cleaned and
+            stored in a MySQL database. This data is served through Flask and visualized with Chart.js, offering dynamic
+            and interactive insights. The project is open to contributions, and I encourage anyone interested to explore
+            and help enhance its features.
+          </p>
+          <p>
+            <a href="https://github.com/rewaj56/rewaj56.github.io/tree/main/kati-kamayoo" target="_blank" class="button has-background-white-ter has-text-danger has-text-weight-semibold">View on GitHub</a>
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="image">
+            <img
+              src="https://raw.githubusercontent.com/rewaj56/rewaj56.github.io/main/kati-kamayoo/screenshots/screenshot1.PNG"
+              alt="Screenshot 1" style="border-radius: 8px;" class="hover-popout" tabindex="0">
+          </figure>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="columns is-vcentered is-variable is-8">
+        <div class="column is-half">
+          <p class="content has-text-justified has-text-black-ter"><strong class="has-text-black-bis">PixelExperience
+              Clone:</strong> This GitHub
+            repository contains a project built using Bootstrap 5, replicating the PixelExperience custom ROM website.
+            The project features a responsive layout with a navigation bar, a detailed devices section, an organized
+            news section, and a comprehensive footer. It leverages Bootstrap's grid system and components to ensure a
+            smooth, mobile-friendly experience.
+          </p>
+          <p>
+            <a href="https://github.com/rewaj56/rewaj56.github.io/tree/main/pexp-clone" target="_blank" class="button has-background-white-ter has-text-danger has-text-weight-semibold">View on GitHub</a>
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="image">
+            <img
+              src="https://raw.githubusercontent.com/rewaj56/rewaj56.github.io/main/pexp-clone/screenshot/screenshot1.png"
+              alt="Screenshot 2" style="border-radius: 8px;" class="hover-popout" tabindex="0">
+          </figure>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="columns is-vcentered is-variable is-8">
+        <div class="column is-half">
+          <p class="content has-text-justified has-text-black-ter"><strong class="has-text-black-bis">YouTube
+              Clone:</strong> This GitHub
+            repository showcases a YouTube clone created entirely with HTML and CSS. The project incorporates essential
+            components such as a navbar for navigation, a sidebar for user options, and a responsive grid layout for
+            video display. It includes a functional search bar to enhance user interaction and is designed to be fully
+            responsive, adapting seamlessly across various screen sizes including mobile devices.
+          </p>
+          <p>
+            <a href="https://github.com/rewaj56/rewaj56.github.io/tree/main/youtube-clone" target="_blank" class="button has-background-white-ter has-text-danger has-text-weight-semibold">View on GitHub</a>
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="image">
+            <img
+              src="https://raw.githubusercontent.com/rewaj56/rewaj56.github.io/main/youtube-clone/screenshot/screenshot1.PNG"
+              alt="Screenshot 3" style="border-radius: 8px;" class="hover-popout" tabindex="0">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects section end -->
+
+  <!-- Reach Me At section start -->
+  <section class="section has-background-beige2 p-6" id="reach_me">
+    <div class="container">
+      <h2 class="title is-3 has-text-black-ter">Reach Me At</h2>
+      <div class="columns">
+        <div class="column is-half">
+          <p class="subtitle is-size-5 has-text-black-ter">Feel free to get in touch with me through the following
+            channels:
+          </p>
+          <ul>
+            <li><strong class="has-text-black-ter">Email:</strong> <a class="has-text-black-ter"
+                href="mailto:rewajgautam56@gmail.com">rewajgautam56@gmail.com</a></li>
+            <li><strong class="has-text-black-ter">Phone:</strong> <span class="has-text-black-ter">+977
+                9840477653</span></li>
+            <li><strong class="has-text-black-ter">GitHub:</strong> <a href="https://github.com/rewaj56"
+                target="_blank"><span class="has-text-link">github.com/rewaj56</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Reach Me At section end -->
+
+  <!-- Footer start -->
+  <footer class="footer has-text-black-ter py-4 has-background-beige">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p class="is-size-7"><i>Project maintained by Rewaj Gautam</i></p>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer end -->
+
+  <!-- Scripts here -->
+  <script src="portfolio-assets/script.js"></script>
 </body>
 
 </html>
