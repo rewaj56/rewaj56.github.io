@@ -1,37 +1,54 @@
-/* Hover Effect in Navigation bar items */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+.text-offwhite {
+    color: #C1C2C5;
+}
+
 .nav-link {
     transition: transform 0.15s ease;
 }
 
-/* Targets the nav-link element inside a nav-item element */
 .nav-item:hover .nav-link {
-    transform: scale(1.05);
+    color: whitesmoke;
 }
 
-
-/* Center the content of the card-body */
-.card-body, .card-img-top {
+.card-img-top {
     display: flex;
-    flex-direction: column;         /* stacks items on top of each other*/
     justify-content: center;
     align-items: center;
 }
 
-
-/* To produce hover effect on cards */
-.card:hover {                                   
-    transition: all 0.15s ease;                 /*CSS transition property to apply to all CSS properties with a duration of
-                                                 0.2 seconds and an ease-in-out timing function*/
-    transform: scale(1.02);                     /*By 2%*/
-    z-index: 2;                                 /*Also works on z-index = 1*/
-    position: relative;
+.card-img-top img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
 }
 
-/* Z Index (z-index) is a CSS property that defines the order of overlapping HTML elements. 
-Elements with a higher index will be placed on top of elements with a lower index.
+.card-title {
+    font-size: 1.1rem;
+}
 
-Note: Z index only works on positioned elements (position:absolute, position:relative, or position:fixed). */
+.card-text {
+    color: #C1C2C5;
+    font-size: 0.9rem;
+}
 
+.truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block; 
+}
+
+#news {
+    color: #C1C2C5 !important;
+}
 
 .donate-img {
     height: 200px;
@@ -42,8 +59,8 @@ Note: Z index only works on positioned elements (position:absolute, position:rel
 
 @media only screen and (max-width: 600px) {
     .card-title {
-        font-size: 1.2rem; /* reduce font size for smaller screens */
-        margin-bottom: 0.5rem; /* add some space between the title and subtitle */
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
       }
       .card-subtitle {
         font-size: 1rem;
