@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 import time
 import re
 import csv
@@ -47,6 +48,7 @@ urls = [
     "https://www.daraz.com.np/fashion-jewellery/masala-beads/",
     "https://www.daraz.com.np/home-appliances/philips/",
     "https://www.daraz.com.np/realme/",
+    "https://www.daraz.com.np/casio/",
 ]
 
 # Initialize WebDriver
@@ -62,29 +64,38 @@ for url in urls:
     time.sleep(5)
 
     # Find all product divs using their common class
-    product_divs = driver.find_elements(By.CLASS_NAME, 'description--H8JN9')
+    product_divs = driver.find_elements(By.CLASS_NAME, 'Bm3ON')
 
     # Check if product divs are found
     if product_divs:
         print(f"Found {len(product_divs)} product(s) for {url}.")
     else:
-        print(f"No products found with the class 'description--H8JN9' for {url}.")
+        print(f"No products found with the class 'Bm3ON' for {url}.")
 
     # Iterate through each product div and extract information
     for index, product_div in enumerate(product_divs):
         print(f"Processing product {index + 1} for {url}")
 
-        title = product_div.find_element(By.CLASS_NAME, 'title-wrapper--IaQ0m').text.strip()
-        current_price = product_div.find_element(By.CLASS_NAME, 'current-price--Jklkc').text.strip()
-        original_price = product_div.find_element(By.CLASS_NAME, 'original-price--lHYOH').text.strip()
+        title = product_div.find_element(By.CLASS_NAME, 'RfADt').text.strip()
+        current_price = product_div.find_element(By.CLASS_NAME, 'aBrP0').text.strip()
 
         current_price = clean_data(current_price)
-        original_price = clean_data(original_price)
 
         # Check if the 'Sold' text exists in the product div
-        amount_sold_elem = product_div.find_elements(By.XPATH, ".//div[contains(text(), 'Sold')]")
+        try:
+            # Find the element using its class name
+            amount_sold_elem = product_div.find_element(By.CLASS_NAME, "_1cEkb")
+
+            if amount_sold_elem:
+                amount_sold = extract_number(amount_sold_elem.text.strip())
+            else:
+                amount_sold = 0
+
+        except NoSuchElementException:
+            amount_sold = 0  # Default to 0 if the element is not found
+
         if amount_sold_elem:
-            amount_sold = extract_number(amount_sold_elem[0].text.strip())
+            amount_sold = extract_number(amount_sold_elem.text.strip())
         else:
             amount_sold = 0
 
@@ -92,11 +103,10 @@ for url in urls:
         brand = extract_brand_from_url(url)
 
         # Store the data in the list
-        product_data.append([brand, cleaned_title, current_price, original_price, amount_sold])
+        product_data.append([brand, cleaned_title, current_price, amount_sold])
 
         print(f"Product Title: {cleaned_title}")
         print(f"Current Price: {current_price}")
-        print(f"Original Price: {original_price}")
         print(f"Amount Sold: {amount_sold}")
         print(f"Brand: {brand}")
         print('-' * 40)
