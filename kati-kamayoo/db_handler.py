@@ -24,7 +24,6 @@ def create_table(cursor):
             brand VARCHAR(255),
             title VARCHAR(255),
             current_price VARCHAR(20),
-            original_price VARCHAR(20),
             amount_sold VARCHAR(10)
         )
         """)
@@ -42,11 +41,11 @@ def truncate_table(cursor):
 def insert_data(cursor, product_data):
     try:
         for product in product_data:
-            brand, title, current_price, original_price, amount_sold = product
+            brand, title, current_price, amount_sold = product
             cursor.execute("""
-            INSERT IGNORE INTO products (brand, title, current_price, original_price, amount_sold)
-            VALUES (%s, %s, %s, %s, %s)
-            """, (brand, title, current_price, original_price, amount_sold))
+            INSERT IGNORE INTO products (brand, title, current_price, amount_sold)
+            VALUES (%s, %s, %s, %s)
+            """, (brand, title, current_price, amount_sold))
         print("Data insertion successful")
     except Error as e:
         print(f"Error inserting data: {e}")
