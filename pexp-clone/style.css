@@ -1,68 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .text-offwhite {
-    color: #C1C2C5;
+  color: #c1c2c5;
 }
 
 .nav-link {
-    transition: transform 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
 .nav-item:hover .nav-link {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .card-img-top {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img-top img {
-    height: 100px;
-    width: 100px;
-    object-fit: contain;
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
 }
 
 .card-title {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 .card-text {
-    color: #C1C2C5;
-    font-size: 0.9rem;
+  color: #c1c2c5;
+  font-size: 0.9rem;
 }
 
 .truncate {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: block; 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 #news {
-    color: #C1C2C5 !important;
+  color: #c1c2c5 !important;
 }
 
 .donate-img {
-    height: 200px;
-    width: auto;
-    float: right;
+  height: 200px;
+  width: auto;
+  float: right;
 }
 
-
 @media only screen and (max-width: 600px) {
-    .card-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.5rem;
-      }
-      .card-subtitle {
-        font-size: 1rem;
-      }
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 1rem;
+  }
+
+  .bottom-gap {
+    margin-bottom: 1rem;
+  }
+  
+  .mobile-p-1 {
+    padding: 1rem 1rem !important;
+  }
 }
