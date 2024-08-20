@@ -172,7 +172,7 @@
   }
 
   .header {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 
   .voice-search-button, .upload-icon-container, .youtube-apps-icon, .notifications-icon-container {
@@ -184,7 +184,7 @@
   }
 
   .search-bar {
-    width: 90px;
+    width: 100px;
   }
 
   .header{
@@ -192,6 +192,9 @@
   }
 
   .right-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 0;
   }
 }
