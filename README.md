@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=rewaj56&label=Profile%20views&color=0e75b6&style=flat" alt="rewaj56" /> </p>
 
-- 🔭 I’m currently working on [Kati Kamayoo](https://rewaj56.github.io/kati-kamayoo/)
+- 🔭 I’m currently working on [Kati Kamayoo](https://katikamayoo.vercel.app/)
 
 - 👨‍💻 All of my projects are available at [https://rewaj56.github.io/](https://rewaj56.github.io/)
 
